@@ -48,16 +48,29 @@ body{
 /* ============================================ */
 body::before{
   content:'';position:fixed;inset:0;
-  background-image:
-    radial-gradient(circle at 20% 30%,rgba(196,162,101,.04) 0,transparent 40%),
-    radial-gradient(circle at 80% 70%,rgba(196,162,101,.03) 0,transparent 40%);
+  background:
+    /* subtle gold glow */
+    radial-gradient(ellipse at 20% 30%,rgba(196,162,101,.06) 0,transparent 50%),
+    radial-gradient(ellipse at 80% 70%,rgba(196,162,101,.04) 0,transparent 50%),
+    /* batik parang motif — diagonal repeating */
+    repeating-linear-gradient(75deg,transparent 0,transparent 7px,rgba(196,162,101,.015) 7px,rgba(196,162,101,.015) 8px),
+    repeating-linear-gradient(75deg,transparent 0,transparent 25px,rgba(196,162,101,.008) 25px,rgba(196,162,101,.008) 26px),
+    repeating-linear-gradient(15deg,transparent 0,transparent 20px,rgba(196,162,101,.005) 20px,rgba(196,162,101,.005) 21px);
   pointer-events:none;z-index:0
+}
+
+/* batik overlay texture */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=1200&q=50');
+  background-size:cover;background-position:center;background-attachment:fixed;
+  opacity:.06;mix-blend-mode:soft-light;pointer-events:none;z-index:0
 }
 
 /* ============================================ */
 /* WAYANG SILHOUETTES BG                        */
 /* ============================================ */
-.wayang-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.wayang-bg{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .wayang-bg svg{position:absolute;opacity:0;animation:fade-drift linear infinite both}
 @keyframes fade-drift{
   0%{opacity:0;transform:translateY(20px)}
@@ -67,17 +80,17 @@ body::before{
 }
 
 /* gunungan besar kiri */
-.wg-bl{left:-30px;bottom:-20px;width:clamp(180px,25vw,300px);animation-duration:14s;animation-delay:0s}
+.wg-bl{left:-40px;bottom:-20px;width:clamp(200px,28vw,340px);animation-duration:14s;animation-delay:0s;opacity:.25!important}
 /* gunungan kecil kanan atas */
-.wg-tr{right:-10px;top:15%;width:clamp(60px,12vw,140px);animation-duration:18s;animation-delay:3s}
+.wg-tr{right:-15px;top:12%;width:clamp(70px,14vw,160px);animation-duration:18s;animation-delay:3s;opacity:.18!important}
 /* gunungan sedang kiri tengah */
-.wg-ml{left:-20px;top:40%;width:clamp(80px,15vw,180px);animation-duration:20s;animation-delay:5s}
+.wg-ml{left:-25px;top:38%;width:clamp(90px,16vw,200px);animation-duration:20s;animation-delay:5s;opacity:.15!important}
 /* wayang figure — right side */
-.wg-fr{right:10px;bottom:25%;width:clamp(50px,8vw,100px);animation-duration:16s;animation-delay:2s}
+.wg-fr{right:15px;bottom:28%;width:clamp(55px,9vw,110px);animation-duration:16s;animation-delay:2s;opacity:.12!important}
 /* wayang figure — left side small */
-.wg-fl{left:15px;top:60%;width:clamp(40px,6vw,80px);animation-duration:22s;animation-delay:4s}
+.wg-fl{left:20px;top:58%;width:clamp(45px,7vw,90px);animation-duration:22s;animation-delay:4s;opacity:.1!important}
 /* wayang figure — bottom right */
-.wg-br{right:25px;bottom:5%;width:clamp(45px,7vw,90px);animation-duration:19s;animation-delay:7s}
+.wg-br{right:30px;bottom:8%;width:clamp(50px,8vw,100px);animation-duration:19s;animation-delay:7s;opacity:.14!important}
 
 /* Mobile: hide all wayang bg for perf */
 @media(max-width:480px){.wayang-bg{display:none}}
@@ -1127,7 +1140,7 @@ async function copyText(t){
 let howl=null;
 function playMusic(){
   // 🖋 GANTI: URL audio
-  const audioUrl='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+  const audioUrl='https://archive.org/download/saguh-hadicarito-pujangga-anom/Saguh%20Hadicarito-Pujangga%20Anom-01-Pujangga%20Anom.mp3';
   if(!howl){
     howl=new Howl({
       src:[audioUrl],
