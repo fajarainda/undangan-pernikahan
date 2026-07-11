@@ -118,7 +118,8 @@ body::after{
   position:fixed;inset:0;z-index:9998;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:linear-gradient(170deg,#1a0f08 0%,#120a05 40%,#2a1a0e 100%);
-  transition:opacity .6s ease,visibility .6s ease
+  transition:opacity .6s ease,visibility .6s ease;
+  pointer-events:auto
 }
 #cover.hidden{opacity:0;visibility:hidden;pointer-events:none}
 
