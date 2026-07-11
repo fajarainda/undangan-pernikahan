@@ -348,91 +348,100 @@ section::after{
 }
 
 /* ============================================ */
-/* ACARA — CENTER TIMELINE                      */
+/* ACARA — PREMIUM CARDS                        */
 /* ============================================ */
-.tl-wrap{
-  position:relative
+.event-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  align-items:start
 }
-.tl-wrap::before{
+.event-card{
+  background:linear-gradient(145deg,rgba(20,30,43,.7),rgba(10,17,24,.8));
+  border:1px solid rgba(212,175,55,.25);
+  border-radius:14px;
+  padding:28px 22px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden
+}
+.event-card::before{
   content:'';position:absolute;
-  left:50%;top:8px;bottom:8px;
-  width:2px;
-  background:linear-gradient(to bottom,var(--gold),transparent);
-  transform:translateX(-50%)
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),#f0d68a,var(--gold))
 }
-.tl-item{
-  display:flex;align-items:flex-start;
-  margin-bottom:28px
-}
-.tl-item:last-child{margin-bottom:0}
-.tl-content{
-  width:44%;padding:0 0 0 24px
-}
-.tl-right .tl-content{
-  padding:0 24px 0 0;
-  margin-left:auto;text-align:right
-}
-.tl-dot{
-  flex-shrink:0;width:14px;height:14px;
-  margin:4px 0 0 0;
-  border-radius:50%;
-  background:var(--gold);
-  border:2px solid var(--navy);
-  box-shadow:0 0 6px rgba(212,175,55,.3);
-  position:relative;z-index:2
-}
-.tl-item:not(.tl-right){
-  flex-direction:row;
-  justify-content:flex-start
-}
-.tl-item:not(.tl-right) .tl-dot{order:-1;margin-right:auto}
-.tl-right{flex-direction:row-reverse}
-.tl-badge{
+.event-card-label{
   display:inline-block;
-  font-size:.6rem;letter-spacing:2px;
+  font-size:.55rem;letter-spacing:3px;
   text-transform:uppercase;color:var(--gold);
-  margin-bottom:4px;font-weight:600
+  border:1px solid var(--gold);
+  padding:3px 12px;border-radius:20px;
+  margin-bottom:10px;font-weight:500
 }
-.tl-name{
+.event-card-title{
   font-family:var(--font-serif);
-  font-size:clamp(1.05rem,2.5vw,1.25rem);
-  color:var(--gold-light);margin-bottom:8px
+  font-size:clamp(1rem,2.5vw,1.2rem);
+  color:var(--gold-light);
+  margin-bottom:16px;
+  letter-spacing:.5px
 }
-.tl-info{
-  display:flex;gap:8px;align-items:flex-start;
-  font-size:.85rem;color:var(--text-body);
-  line-height:1.5;margin-bottom:4px
+.event-info{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-bottom:10px;
+  font-size:.88rem;
+  color:var(--text-body);
+  line-height:1.6
 }
-.tl-info:last-of-type{margin-bottom:0}
-.tl-info span:first-child{flex-shrink:0;width:18px;text-align:center;font-size:.8rem}
-.tl-right .tl-info{justify-content:flex-end;flex-direction:row-reverse}
-.tl-actions{
-  display:flex;flex-wrap:wrap;gap:8px;
-  margin-top:10px
-}
-.tl-right .tl-actions{justify-content:flex-end}
-.tl-btn{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:5px 14px;
-  background:transparent;
-  border:1px solid var(--gold);color:var(--gold);
+.event-info:last-of-type{margin-bottom:0}
+.event-info-icon{
+  flex-shrink:0;
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(212,175,55,.12);
   border-radius:6px;
-  font-family:var(--font-sans);font-size:.74rem;
-  font-weight:500;cursor:pointer;transition:all .3s;
+  font-size:.75rem;
+  margin-top:1px
+}
+.event-info-text strong{color:var(--gold-light)}
+.event-card-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid rgba(212,175,55,.15)
+}
+.event-card-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:8px 18px;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  border-radius:8px;
+  font-family:var(--font-sans);
+  font-size:.75rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:all .3s ease;
   text-decoration:none
 }
-.tl-btn:hover{background:var(--gold);color:var(--navy)}
-
-/* mobile: semua ke kiri */
-@media(max-width:480px){
-  .tl-wrap::before{left:10px;transform:none}
-  .tl-item,.tl-right,.tl-item:not(.tl-right){flex-direction:row;margin-bottom:22px}
-  .tl-content,.tl-right .tl-content{width:calc(100% - 24px);padding:0 0 0 20px;margin-left:24px;text-align:left}
-  .tl-dot{flex-shrink:0;margin:4px 0 0 0;position:absolute;left:3px}
-  .tl-item{position:relative}
-  .tl-right .tl-info,.tl-right .tl-actions{justify-content:flex-start;flex-direction:row}
-  .tl-actions{flex-direction:column}
-  .tl-actions .tl-btn{justify-content:center}
+.event-card-btn:hover{
+  background:var(--gold);
+  color:var(--navy)
+}
+@media(max-width:500px){
+  .event-grid{grid-template-columns:1fr;gap:20px}
+  .event-card{padding:22px 18px}
+  .event-card-actions{flex-direction:column}
+  .event-card-actions .event-card-btn{justify-content:center}
 }
 
 /* ============================================ */
@@ -912,60 +921,54 @@ section::after{
   </div>
 </section>
 
-<!-- ===== SECTION 4: ACARA (CENTER TIMELINE) ===== -->
+<!-- ===== SECTION 4: ACARA ===== -->
 <section id="event" class="reveal">
   <div class="section-tag">Acara</div>
   <div class="section-divider"></div>
   <h2 class="section-title">Rangkaian Acara</h2>
 
-  <div class="tl-wrap">
-    <!-- Akad → kiri -->
-    <div class="tl-item">
-      <div class="tl-content">
-        <div class="tl-badge">Akad Nikah</div>
-        <h3 class="tl-name">Ijab Qabul</h3>
-        <div class="tl-info">
-          <span>&#128197;</span>
-          <span><strong>Sabtu, 12 Juli 2026</strong></span>
-        </div>
-        <div class="tl-info">
-          <span>&#9200;</span>
-          <span>09:00 — 11:00 WIB</span>
-        </div>
-        <div class="tl-info">
-          <span>&#128205;</span>
-          <span><!-- 🖋 GANTI --><strong>[Nama Masjid / Gedung]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
-        </div>
-        <div class="tl-actions">
-          <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
-          <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
-        </div>
+  <div class="event-grid">
+    <!-- Akad -->
+    <div class="event-card reveal reveal-delay-1">
+      <span class="event-card-label">Akad Nikah</span>
+      <h3 class="event-card-title">Ijab Qabul</h3>
+      <div class="event-info">
+        <span class="event-info-icon">&#128197;</span>
+        <span class="event-info-text"><strong>Sabtu, 12 Juli 2026</strong></span>
       </div>
-      <div class="tl-dot"></div>
+      <div class="event-info">
+        <span class="event-info-icon">&#9200;</span>
+        <span class="event-info-text">09:00 — 11:00 WIB</span>
+      </div>
+      <div class="event-info">
+        <span class="event-info-icon">&#128205;</span>
+        <span class="event-info-text"><!-- 🖋 GANTI --><strong>[Nama Masjid / Gedung]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
+      </div>
+      <div class="event-card-actions">
+        <a class="event-card-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+        <a class="event-card-btn" href="#" target="_blank">&#128197; Simpan</a>
+      </div>
     </div>
 
-    <!-- Resepsi → kanan -->
-    <div class="tl-item tl-right">
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-badge">Resepsi</div>
-        <h3 class="tl-name">Walimatul 'Ursy</h3>
-        <div class="tl-info">
-          <span>&#128197;</span>
-          <span><strong>Sabtu, 12 Juli 2026</strong></span>
-        </div>
-        <div class="tl-info">
-          <span>&#9200;</span>
-          <span>12:00 — 17:00 WIB</span>
-        </div>
-        <div class="tl-info">
-          <span>&#128205;</span>
-          <span><!-- 🖋 GANTI --><strong>[Nama Gedung / Hotel]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
-        </div>
-        <div class="tl-actions">
-          <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
-          <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
-        </div>
+    <!-- Resepsi -->
+    <div class="event-card reveal reveal-delay-2">
+      <span class="event-card-label">Resepsi</span>
+      <h3 class="event-card-title">Walimatul 'Ursy</h3>
+      <div class="event-info">
+        <span class="event-info-icon">&#128197;</span>
+        <span class="event-info-text"><strong>Sabtu, 12 Juli 2026</strong></span>
+      </div>
+      <div class="event-info">
+        <span class="event-info-icon">&#9200;</span>
+        <span class="event-info-text">12:00 — 17:00 WIB</span>
+      </div>
+      <div class="event-info">
+        <span class="event-info-icon">&#128205;</span>
+        <span class="event-info-text"><!-- 🖋 GANTI --><strong>[Nama Gedung / Hotel]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
+      </div>
+      <div class="event-card-actions">
+        <a class="event-card-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+        <a class="event-card-btn" href="#" target="_blank">&#128197; Simpan</a>
       </div>
     </div>
   </div>
