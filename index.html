@@ -10,7 +10,7 @@
 <meta property="og:title" content="Pernikahan Fajar & NamaWanita">
 <meta property="og:description" content="Dengan hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di pernikahan kami.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200">
-<meta property="og:url" content="https://fajarainda.github.io/undangan-nikah">
+<meta property="og:url" content="https://fajarainda.github.io/undangan-pernikahan/">
 <meta name="theme-color" content="#1a0f08">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1016,7 +1016,9 @@ if(guest) document.getElementById('guestName').textContent=guest;
 /* ============================================ */
 window.addEventListener('load',()=>{
   setTimeout(()=>document.getElementById('loader').classList.add('hidden'),400)
-})
+});
+// fallback: paksa loader ilang stlh 4 detik biar gak stuck
+setTimeout(()=>document.getElementById('loader').classList.add('hidden'),4000)
 
 /* ============================================ */
 /* COUNTDOWN                                    */
