@@ -241,16 +241,10 @@ section::after{
 /* ============================================ */
 .couple-wrap{
   display:flex;flex-direction:column;
-  align-items:center;gap:0;
-  position:relative;margin-top:20px
+  align-items:center;margin-top:20px
 }
 @media(min-width:640px){
-  .couple-wrap{
-    flex-direction:row;
-    justify-content:center;
-    align-items:flex-start;
-    gap:0
-  }
+  .couple-wrap{flex-direction:row;justify-content:center;align-items:flex-start}
 }
 .couple-card{
   text-align:center;
@@ -260,78 +254,69 @@ section::after{
   border-radius:var(--radius);
   backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(6px);
-  flex:1;max-width:320px;
-  width:100%
+  flex:1;max-width:300px;width:100%
 }
 @media(min-width:640px){
-  .couple-card:first-child{margin-right:-1px}
-  .couple-card:last-child{margin-left:-1px}
+  .couple-card:first-child{border-radius:var(--radius) 0 0 var(--radius);border-right:none}
+  .couple-card:last-child{border-radius:0 var(--radius) var(--radius) 0;border-left:none}
 }
 .couple-photo-wrap{
   margin:0 auto 16px;
   display:flex;justify-content:center
 }
 .couple-ring{
-  width:130px;height:130px;
-  border-radius:50%;
-  padding:4px;
-  background:linear-gradient(135deg,var(--gold),rgba(200,160,100,.3));
+  width:120px;height:120px;
+  border-radius:50%;padding:3px;
+  background:linear-gradient(135deg,var(--gold),rgba(200,160,100,.25));
   display:flex;align-items:center;justify-content:center
 }
 .couple-photo{
   width:100%;height:100%;
   border-radius:50%;object-fit:cover;
-  border:2px solid var(--navy);
-  display:block
+  border:2px solid var(--navy);display:block
 }
 .couple-name{
   font-family:var(--font-serif);
-  font-size:clamp(1.2rem,3vw,1.5rem);
+  font-size:clamp(1.15rem,3vw,1.4rem);
   color:var(--gold-light);margin-bottom:2px
 }
 .couple-title{
-  font-size:.7rem;letter-spacing:3px;
+  font-size:.65rem;letter-spacing:3px;
   text-transform:uppercase;color:var(--gold);
-  margin-bottom:8px
+  margin-bottom:10px
 }
 .couple-parents{
-  font-size:.82rem;color:var(--text-muted);
-  line-height:1.7;max-width:200px;
-  margin:0 auto
+  font-size:.82rem;color:var(--text-muted);line-height:1.5;
+  max-width:200px;margin:0 auto
 }
-.couple-parents br{display:none}
-@media(max-width:380px){
-  .couple-parents br{display:inline}
+.parent-label{
+  display:block;font-size:.7rem;
+  color:var(--text-muted);opacity:.7;
+  margin-bottom:2px;letter-spacing:1px
 }
-.couple-middle{
+.couple-divider{
   display:flex;align-items:center;justify-content:center;
-  z-index:2;margin:8px 0
+  width:100%;margin:6px 0
 }
 @media(min-width:640px){
-  .couple-middle{
-    position:relative;
-    margin:0;width:40px;flex-shrink:0
+  .couple-divider{
+    width:36px;margin:0;flex-shrink:0;
+    position:relative;min-height:280px
   }
-  .couple-middle::before{
-    content:'';position:absolute;left:50%;
-    top:0;bottom:0;
-    width:1px;
+  .couple-divider::before{
+    content:'';position:absolute;
+    width:1px;height:100%;
     background:linear-gradient(180deg,transparent,var(--gold),transparent)
   }
 }
-.couple-middle .ornament-text{
+.couple-amp{
   font-family:var(--font-script);
-  font-size:1rem;color:var(--gold);
-  background:var(--navy);
-  padding:0 8px;position:relative;
-  z-index:1;line-height:1
+  font-size:1.3rem;color:var(--gold);
+  background:var(--navy);padding:0 10px;
+  position:relative;z-index:1;line-height:1
 }
 @media(min-width:640px){
-  .couple-middle .ornament-text{
-    font-size:1.1rem;
-    background:var(--navy);
-    padding:0 6px
-  }
+  .couple-amp{font-size:1.1rem;padding:0 6px}
 }
 
 /* ============================================ */
@@ -384,28 +369,36 @@ section::after{
 .event-name{
   font-family:var(--font-serif);
   font-size:clamp(1rem,2.5vw,1.2rem);
-  color:var(--gold-light);margin-bottom:6px
+  color:var(--gold-light);margin-bottom:14px
 }
 .event-detail{
   font-size:.88rem;color:var(--text-body);line-height:1.7
 }
-.event-detail strong{color:var(--gold-light)}
-.event-detail a{
-  color:var(--gold);text-decoration:none;
-  border-bottom:1px dotted var(--border)
+.event-row{
+  display:flex;gap:10px;align-items:flex-start;
+  margin-bottom:8px
 }
-.event-detail a:hover{border-bottom-color:var(--gold)}
+.event-row:last-child{margin-bottom:0}
+.event-icon{
+  flex-shrink:0;width:20px;text-align:center;
+  margin-top:1px
+}
+.event-actions{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:16px;padding-top:14px;
+  border-top:1px solid var(--border)
+}
 .event-cta{
   display:inline-flex;align-items:center;gap:5px;
-  margin-top:14px;
-  padding:9px 22px;
-  background:var(--gold);color:var(--navy);
-  border:none;border-radius:8px;
-  font-family:var(--font-sans);font-size:.82rem;
+  padding:8px 18px;
+  background:transparent;
+  border:1px solid var(--gold);color:var(--gold);
+  border-radius:8px;
+  font-family:var(--font-sans);font-size:.78rem;
   font-weight:500;cursor:pointer;transition:all .3s;
-  text-decoration:none
+  text-decoration:none;letter-spacing:.3px
 }
-.event-cta:hover{opacity:.9}
+.event-cta:hover{background:var(--gold);color:var(--navy)}
 
 /* ============================================ */
 /* GALERI                                       */
@@ -707,8 +700,10 @@ section::after{
   .gallery-grid{grid-template-columns:repeat(2,1fr);gap:4px}
   .countdown-wrap{padding:20px 8px}
   .event-card{padding:20px 14px}
+  .event-actions{flex-direction:column}
+  .event-actions .event-cta{justify-content:center}
   .bank-card{padding:14px}
-  .couple-ring{width:110px;height:110px}
+  .couple-ring{width:100px;height:100px}
   .nav-dots{display:none}
   .hero-mini{padding-top:24px}
   .rsvp-form{padding:18px 14px}
@@ -822,12 +817,15 @@ section::after{
       <div class="couple-title">Mempelai Pria</div>
       <div class="couple-parents">
         <!-- 🖋 GANTI: Nama orang tua mempelai pria -->
-        Putra dari <br>Bapak [Ayah Pria] & Ibu [Ibu Pria]
+        <span class="parent-label">Putra dari</span>
+        Bpk. [Ayah Pria] & Ibu [Ibu Pria]
       </div>
     </div>
 
-    <!-- Ornament between -->
-    <div class="couple-middle"><span class="ornament-text">&amp;</span></div>
+    <!-- middle & -->
+    <div class="couple-divider">
+      <span class="couple-amp">&amp;</span>
+    </div>
 
     <!-- Wanita -->
     <div class="couple-card reveal reveal-delay-2">
@@ -843,7 +841,8 @@ section::after{
       <div class="couple-title">Mempelai Wanita</div>
       <div class="couple-parents">
         <!-- 🖋 GANTI: Nama orang tua mempelai wanita -->
-        Putri dari <br>Bapak [Ayah Wanita] & Ibu [Ibu Wanita]
+        <span class="parent-label">Putri dari</span>
+        Bpk. [Ayah Wanita] & Ibu [Ibu Wanita]
       </div>
     </div>
   </div>
@@ -892,22 +891,29 @@ section::after{
     <div class="event-label">Akad Nikah</div>
     <div class="event-name">Ijab Qabul</div>
     <div class="event-detail">
-      <!-- 🖋 GANTI: Waktu & tempat akad -->
-      <strong>Sabtu, 12 Juli 2026</strong><br>
-      Pukul 09:00 — 11:00 WIB<br><br>
-      Bertempat di:<br>
-      <!-- 🖋 GANTI: Nama gedung/lokasi -->
-      <strong>[Nama Gedung / Masjid]</strong><br>
-      <!-- 🖋 GANTI: Alamat lengkap -->
-      Jl. [Nama Jalan] No. 00, [Kota]<br><br>
-      <!-- 🖋 GANTI: Link Google Maps -->
-      <a href="https://maps.google.com/?q=Jakarta" target="_blank">
-        &#128205; Lihat di Google Maps
-      </a>
+      <!-- 🖋 GANTI: tanggal & waktu -->
+      <div class="event-row">
+        <span class="event-icon">&#128197;</span>
+        <span><strong>Sabtu, 12 Juli 2026</strong></span>
+      </div>
+      <div class="event-row">
+        <span class="event-icon">&#9200;</span>
+        <span>09:00 — 11:00 WIB</span>
+      </div>
+      <div class="event-row">
+        <span class="event-icon">&#128205;</span>
+        <span>
+          <!-- 🖋 GANTI: lokasi akad -->
+          <strong>[Nama Masjid / Gedung]</strong><br>
+          Jl. [Nama Jalan] No. 00, [Kota]
+        </span>
+      </div>
     </div>
-    <a class="event-cta" href="#" target="_blank">
-      &#128197; Simpan ke Kalender
-    </a>
+    <div class="event-actions">
+      <!-- 🖋 GANTI: Links -->
+      <a class="event-cta" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+      <a class="event-cta" href="#" target="_blank">&#128197; Simpan ke Kalender</a>
+    </div>
   </div>
 
   <!-- Resepsi -->
@@ -915,21 +921,29 @@ section::after{
     <div class="event-label">Resepsi</div>
     <div class="event-name">Walimatul 'Ursy</div>
     <div class="event-detail">
-      <!-- 🖋 GANTI: Waktu & tempat resepsi -->
-      <strong>Sabtu, 12 Juli 2026</strong><br>
-      Pukul 12:00 — 17:00 WIB<br><br>
-      Bertempat di:<br>
-      <!-- 🖋 GANTI: Nama gedung/lokasi resepsi -->
-      <strong>[Nama Gedung / Hotel]</strong><br>
-      <!-- 🖋 GANTI: Alamat resepsi -->
-      Jl. [Nama Jalan] No. 00, [Kota]<br><br>
-      <a href="https://maps.google.com/?q=Jakarta" target="_blank">
-        &#128205; Lihat di Google Maps
-      </a>
+      <!-- 🖋 GANTI: tanggal & waktu resepsi -->
+      <div class="event-row">
+        <span class="event-icon">&#128197;</span>
+        <span><strong>Sabtu, 12 Juli 2026</strong></span>
+      </div>
+      <div class="event-row">
+        <span class="event-icon">&#9200;</span>
+        <span>12:00 — 17:00 WIB</span>
+      </div>
+      <div class="event-row">
+        <span class="event-icon">&#128205;</span>
+        <span>
+          <!-- 🖋 GANTI: lokasi resepsi -->
+          <strong>[Nama Gedung / Hotel]</strong><br>
+          Jl. [Nama Jalan] No. 00, [Kota]
+        </span>
+      </div>
     </div>
-    <a class="event-cta" href="#" target="_blank">
-      &#128197; Simpan ke Kalender
-    </a>
+    <div class="event-actions">
+      <!-- 🖋 GANTI: Links -->
+      <a class="event-cta" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+      <a class="event-cta" href="#" target="_blank">&#128197; Simpan ke Kalender</a>
+    </div>
   </div>
 </section>
 
