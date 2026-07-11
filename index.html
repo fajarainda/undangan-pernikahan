@@ -239,50 +239,99 @@ section::after{
 /* ============================================ */
 /* MEMPELAI                                     */
 /* ============================================ */
-.couple-grid{
-  display:grid;grid-template-columns:1fr;
-  gap:32px;margin-top:16px
+.couple-wrap{
+  display:flex;flex-direction:column;
+  align-items:center;gap:0;
+  position:relative;margin-top:20px
 }
 @media(min-width:640px){
-  .couple-grid{grid-template-columns:1fr 1fr}
+  .couple-wrap{
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+    gap:0
+  }
 }
 .couple-card{
   text-align:center;
-  padding:28px 20px 24px;
+  padding:32px 20px 28px;
   background:var(--bg-card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px)
+  -webkit-backdrop-filter:blur(6px);
+  flex:1;max-width:320px;
+  width:100%
+}
+@media(min-width:640px){
+  .couple-card:first-child{margin-right:-1px}
+  .couple-card:last-child{margin-left:-1px}
+}
+.couple-photo-wrap{
+  margin:0 auto 16px;
+  display:flex;justify-content:center
+}
+.couple-ring{
+  width:130px;height:130px;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,var(--gold),rgba(200,160,100,.3));
+  display:flex;align-items:center;justify-content:center
 }
 .couple-photo{
-  width:130px;height:130px;
+  width:100%;height:100%;
   border-radius:50%;object-fit:cover;
-  border:3px solid var(--gold);
-  margin:0 auto 14px;display:block
+  border:2px solid var(--navy);
+  display:block
 }
 .couple-name{
   font-family:var(--font-serif);
-  font-size:clamp(1.1rem,3vw,1.4rem);
+  font-size:clamp(1.2rem,3vw,1.5rem);
   color:var(--gold-light);margin-bottom:2px
 }
 .couple-title{
   font-size:.7rem;letter-spacing:3px;
   text-transform:uppercase;color:var(--gold);
-  margin-bottom:10px
+  margin-bottom:8px
 }
 .couple-parents{
-  font-size:.82rem;color:var(--text-muted);line-height:1.6
+  font-size:.82rem;color:var(--text-muted);
+  line-height:1.7;max-width:200px;
+  margin:0 auto
 }
-.couple-parents span{display:block}
+.couple-parents br{display:none}
+@media(max-width:380px){
+  .couple-parents br{display:inline}
+}
 .couple-middle{
   display:flex;align-items:center;justify-content:center;
-  gap:10px;margin:12px 0;
-  font-family:var(--font-script);
-  font-size:1.4rem;color:var(--gold)
+  z-index:2;margin:8px 0
 }
 @media(min-width:640px){
-  .couple-middle{grid-column:1/-1;margin:0}
+  .couple-middle{
+    position:relative;
+    margin:0;width:40px;flex-shrink:0
+  }
+  .couple-middle::before{
+    content:'';position:absolute;left:50%;
+    top:0;bottom:0;
+    width:1px;
+    background:linear-gradient(180deg,transparent,var(--gold),transparent)
+  }
+}
+.couple-middle .ornament-text{
+  font-family:var(--font-script);
+  font-size:1rem;color:var(--gold);
+  background:var(--navy);
+  padding:0 8px;position:relative;
+  z-index:1;line-height:1
+}
+@media(min-width:640px){
+  .couple-middle .ornament-text{
+    font-size:1.1rem;
+    background:var(--navy);
+    padding:0 6px
+  }
 }
 
 /* ============================================ */
@@ -659,8 +708,7 @@ section::after{
   .countdown-wrap{padding:20px 8px}
   .event-card{padding:20px 14px}
   .bank-card{padding:14px}
-  .couple-card{padding:20px 14px}
-  .couple-photo{width:110px;height:110px}
+  .couple-ring{width:110px;height:110px}
   .nav-dots{display:none}
   .hero-mini{padding-top:24px}
   .rsvp-form{padding:18px 14px}
@@ -759,37 +807,43 @@ section::after{
   <div class="section-divider"></div>
   <h2 class="section-title">Kedua Mempelai</h2>
 
-  <div class="couple-grid">
+  <div class="couple-wrap">
     <!-- Pria -->
     <div class="couple-card reveal reveal-delay-1">
-      <!-- 🖋 GANTI: foto mempelai pria -->
-      <img class="couple-photo"
-           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
-           alt="Foto Mempelai Pria"
-           loading="lazy">
+      <div class="couple-photo-wrap">
+        <div class="couple-ring">
+          <img class="couple-photo"
+               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+               alt="Foto Mempelai Pria"
+               loading="lazy">
+        </div>
+      </div>
       <div class="couple-name">Fajar</div>
       <div class="couple-title">Mempelai Pria</div>
       <div class="couple-parents">
         <!-- 🖋 GANTI: Nama orang tua mempelai pria -->
-        Putra dari Bapak [Ayah Pria]<span>& Ibu [Ibu Pria]</span>
+        Putra dari <br>Bapak [Ayah Pria] & Ibu [Ibu Pria]
       </div>
     </div>
 
-    <!-- Middle ornament -->
-    <div class="couple-middle">&amp;</div>
+    <!-- Ornament between -->
+    <div class="couple-middle"><span class="ornament-text">&amp;</span></div>
 
     <!-- Wanita -->
     <div class="couple-card reveal reveal-delay-2">
-      <!-- 🖋 GANTI: foto mempelai wanita -->
-      <img class="couple-photo"
-           src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face"
-           alt="Foto Mempelai Wanita"
-           loading="lazy">
+      <div class="couple-photo-wrap">
+        <div class="couple-ring">
+          <img class="couple-photo"
+               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face"
+               alt="Foto Mempelai Wanita"
+               loading="lazy">
+        </div>
+      </div>
       <div class="couple-name">NamaWanita</div>
       <div class="couple-title">Mempelai Wanita</div>
       <div class="couple-parents">
         <!-- 🖋 GANTI: Nama orang tua mempelai wanita -->
-        Putri dari Bapak [Ayah Wanita]<span>& Ibu [Ibu Wanita]</span>
+        Putri dari <br>Bapak [Ayah Wanita] & Ibu [Ibu Wanita]
       </div>
     </div>
   </div>
