@@ -49,12 +49,38 @@ body{
 body::before{
   content:'';position:fixed;inset:0;
   background-image:
-    radial-gradient(circle at 20% 30%,rgba(196,162,101,.03) 0,transparent 40%),
-    radial-gradient(circle at 80% 70%,rgba(139,37,0,.04) 0,transparent 40%),
-    repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(196,162,101,.012) 20px,rgba(196,162,101,.012) 21px),
-    repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(196,162,101,.012) 20px,rgba(196,162,101,.012) 21px);
+    radial-gradient(circle at 20% 30%,rgba(196,162,101,.04) 0,transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(196,162,101,.03) 0,transparent 40%);
   pointer-events:none;z-index:0
 }
+
+/* ============================================ */
+/* WAYANG SILHOUETTES BG                        */
+/* ============================================ */
+.wayang-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.wayang-bg svg{position:absolute;opacity:0;animation:fade-drift linear infinite both}
+@keyframes fade-drift{
+  0%{opacity:0;transform:translateY(20px)}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{opacity:0;transform:translateY(-20px)}
+}
+
+/* gunungan besar kiri */
+.wg-bl{left:-30px;bottom:-20px;width:clamp(180px,25vw,300px);animation-duration:14s;animation-delay:0s}
+/* gunungan kecil kanan atas */
+.wg-tr{right:-10px;top:15%;width:clamp(60px,12vw,140px);animation-duration:18s;animation-delay:3s}
+/* gunungan sedang kiri tengah */
+.wg-ml{left:-20px;top:40%;width:clamp(80px,15vw,180px);animation-duration:20s;animation-delay:5s}
+/* wayang figure — right side */
+.wg-fr{right:10px;bottom:25%;width:clamp(50px,8vw,100px);animation-duration:16s;animation-delay:2s}
+/* wayang figure — left side small */
+.wg-fl{left:15px;top:60%;width:clamp(40px,6vw,80px);animation-duration:22s;animation-delay:4s}
+/* wayang figure — bottom right */
+.wg-br{right:25px;bottom:5%;width:clamp(45px,7vw,90px);animation-duration:19s;animation-delay:7s}
+
+/* Mobile: hide all wayang bg for perf */
+@media(max-width:480px){.wayang-bg{display:none}}
 
 /* ============================================ */
 /* LOADER                                       */
@@ -543,6 +569,65 @@ section::after{
 </style>
 </head>
 <body>
+
+<div class="wayang-bg" aria-hidden="true">
+  <!-- gunungan besar kiri bawah -->
+  <svg class="wg-bl" viewBox="0 0 200 220" fill="var(--gold)">
+    <path d="M100 0 C60 20 20 80 20 120 C20 160 40 190 40 220 L160 220 C160 190 180 160 180 120 C180 80 140 20 100 0Z"/>
+    <path d="M100 10 C70 30 35 85 35 120 C35 155 50 180 55 200 L145 200 C150 180 165 155 165 120 C165 85 130 30 100 10Z"/>
+  </svg>
+  <div class="wayang-bg" aria-hidden="true">
+    <!-- gunungan besar kiri bawah -->
+    <svg class="wg-bl" viewBox="0 0 200 220" fill="#c4a265">
+      <path d="M100 0 C60 20 20 80 20 120 C20 160 40 190 40 220 L160 220 C160 190 180 160 180 120 C180 80 140 20 100 0Z"/>
+      <path d="M100 10 C70 30 35 85 35 120 C35 155 50 180 55 200 L145 200 C150 180 165 155 165 120 C165 85 130 30 100 10Z"/>
+    </svg>
+    <!-- gunungan kanan atas -->
+    <svg class="wg-tr" viewBox="0 0 200 220" fill="#c4a265">
+      <path d="M100 0 C60 20 20 80 20 120 C20 160 40 190 40 220 L160 220 C160 190 180 160 180 120 C180 80 140 20 100 0Z"/>
+      <path d="M100 10 C70 30 35 85 35 120 C35 155 50 180 55 200 L145 200 C150 180 165 155 165 120 C165 85 130 30 100 10Z"/>
+    </svg>
+    <!-- gunungan kiri tengah -->
+    <svg class="wg-ml" viewBox="0 0 200 220" fill="#c4a265">
+      <path d="M100 0 C60 20 20 80 20 120 C20 160 40 190 40 220 L160 220 C160 190 180 160 180 120 C180 80 140 20 100 0Z"/>
+    </svg>
+    <!-- wayang figure kanan -->
+    <svg class="wg-fr" viewBox="0 0 100 200" fill="#c4a265">
+      <polygon points="40,25 50,2 60,25" opacity=".5"/>
+      <circle cx="50" cy="34" r="10" opacity=".5"/>
+      <rect x="45" y="43" width="10" height="12" opacity=".5"/>
+      <polygon points="45,55 38,55 34,75 40,95 44,55 56,55 60,95 66,75 62,55 55,55" opacity=".5"/>
+      <polygon points="43,58 14,72 12,69 38,53" opacity=".5"/>
+      <polygon points="57,58 78,54 80,58 59,63" opacity=".5"/>
+      <polygon points="40,95 32,130 28,170 72,170 68,130 60,95" opacity=".5"/>
+      <polygon points="28,170 18,176 32,176" opacity=".5"/>
+      <polygon points="72,170 82,176 68,176" opacity=".5"/>
+    </svg>
+    <!-- wayang figure kiri -->
+    <svg class="wg-fl" viewBox="0 0 100 200" fill="#c4a265">
+      <polygon points="40,25 50,2 60,25" opacity=".5"/>
+      <circle cx="50" cy="34" r="10" opacity=".5"/>
+      <rect x="45" y="43" width="10" height="12" opacity=".5"/>
+      <polygon points="45,55 38,55 34,75 40,95 44,55 56,55 60,95 66,75 62,55 55,55" opacity=".5"/>
+      <polygon points="43,58 14,72 12,69 38,53" opacity=".5"/>
+      <polygon points="57,58 78,54 80,58 59,63" opacity=".5"/>
+      <polygon points="40,95 32,130 28,170 72,170 68,130 60,95" opacity=".5"/>
+      <polygon points="28,170 18,176 32,176" opacity=".5"/>
+      <polygon points="72,170 82,176 68,176" opacity=".5"/>
+    </svg>
+    <!-- wayang figure kanan bawah -->
+    <svg class="wg-br" viewBox="0 0 100 200" fill="#c4a265">
+      <polygon points="40,25 50,2 60,25" opacity=".5"/>
+      <circle cx="50" cy="34" r="10" opacity=".5"/>
+      <rect x="45" y="43" width="10" height="12" opacity=".5"/>
+      <polygon points="45,55 38,55 34,75 40,95 44,55 56,55 60,95 66,75 62,55 55,55" opacity=".5"/>
+      <polygon points="43,58 14,72 12,69 38,53" opacity=".5"/>
+      <polygon points="57,58 78,54 80,58 59,63" opacity=".5"/>
+      <polygon points="40,95 32,130 28,170 72,170 68,130 60,95" opacity=".5"/>
+      <polygon points="28,170 18,176 32,176" opacity=".5"/>
+      <polygon points="72,170 82,176 68,176" opacity=".5"/>
+    </svg>
+  </div>
 
 <!-- ===== LOADER ===== -->
 <div id="loader">
