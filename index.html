@@ -351,65 +351,56 @@ section::after{
 /* ACARA — TIMELINE                             */
 /* ============================================ */
 .tl-wrap{
-  position:relative;padding-left:32px
+  position:relative;padding-left:28px
 }
 .tl-wrap::before{
   content:'';position:absolute;
-  left:11px;top:10px;bottom:10px;
+  left:9px;top:8px;bottom:8px;
   width:2px;
   background:linear-gradient(to bottom,var(--gold),transparent)
 }
 .tl-item{
-  position:relative;margin-bottom:28px
+  position:relative;margin-bottom:26px;
+  padding-bottom:4px
 }
 .tl-item:last-child{margin-bottom:0}
 .tl-dot{
-  position:absolute;left:-21px;top:0;
-  width:14px;height:14px;border-radius:50%;
-  background:var(--gold);border:3px solid var(--navy);
-  z-index:2;box-shadow:0 0 8px rgba(212,175,55,.3)
-}
-.tl-card{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:20px 18px;
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px)
+  position:absolute;left:-20px;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--navy);
+  z-index:2;box-shadow:0 0 6px rgba(212,175,55,.3)
 }
 .tl-badge{
   display:inline-block;
-  font-size:.6rem;letter-spacing:3px;
+  font-size:.6rem;letter-spacing:2px;
   text-transform:uppercase;color:var(--gold);
-  border:1px solid var(--gold);
-  padding:2px 10px;border-radius:20px;margin-bottom:8px
+  margin-bottom:4px;font-weight:600
 }
 .tl-name{
   font-family:var(--font-serif);
-  font-size:clamp(1rem,2.5vw,1.2rem);
-  color:var(--gold-light);margin-bottom:12px
+  font-size:clamp(1.05rem,2.5vw,1.25rem);
+  color:var(--gold-light);margin-bottom:8px
 }
 .tl-info{
-  display:flex;gap:10px;align-items:flex-start;
-  font-size:.88rem;color:var(--text-body);
-  line-height:1.6;margin-bottom:6px
+  display:flex;gap:8px;align-items:flex-start;
+  font-size:.85rem;color:var(--text-body);
+  line-height:1.5;margin-bottom:4px
 }
 .tl-info:last-of-type{margin-bottom:0}
-.tl-info span:first-child{flex-shrink:0;width:20px;text-align:center}
+.tl-info span:first-child{flex-shrink:0;width:18px;text-align:center;font-size:.8rem}
 .tl-actions{
   display:flex;flex-wrap:wrap;gap:8px;
-  margin-top:14px;padding-top:12px;
-  border-top:1px solid var(--border)
+  margin-top:10px
 }
 .tl-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:7px 16px;
+  display:inline-flex;align-items:center;gap:4px;
+  padding:5px 14px;
   background:transparent;
   border:1px solid var(--gold);color:var(--gold);
-  border-radius:8px;
-  font-family:var(--font-sans);font-size:.76rem;
+  border-radius:6px;
+  font-family:var(--font-sans);font-size:.74rem;
   font-weight:500;cursor:pointer;transition:all .3s;
-  text-decoration:none;letter-spacing:.3px
+  text-decoration:none
 }
 .tl-btn:hover{background:var(--gold);color:var(--navy)}
 
@@ -712,7 +703,6 @@ section::after{
   section{padding:44px 16px}
   .gallery-grid{grid-template-columns:repeat(2,1fr);gap:4px}
   .countdown-wrap{padding:20px 8px}
-  .tl-card{padding:18px 14px}
   .tl-actions{flex-direction:column}
   .tl-actions .tl-btn{justify-content:center}
   .bank-card{padding:14px}
@@ -903,50 +893,46 @@ section::after{
     <!-- Akad -->
     <div class="tl-item reveal reveal-delay-1">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <span class="tl-badge">Akad Nikah</span>
-        <h3 class="tl-name">Ijab Qabul</h3>
-        <div class="tl-info">
-          <span>&#128197;</span>
-          <span><strong>Sabtu, 12 Juli 2026</strong></span>
-        </div>
-        <div class="tl-info">
-          <span>&#9200;</span>
-          <span>09:00 — 11:00 WIB</span>
-        </div>
-        <div class="tl-info">
-          <span>&#128205;</span>
-          <span><!-- 🖋 GANTI --><strong>[Nama Masjid / Gedung]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
-        </div>
-        <div class="tl-actions">
-          <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
-          <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
-        </div>
+      <div class="tl-badge">Akad Nikah</div>
+      <h3 class="tl-name">Ijab Qabul</h3>
+      <div class="tl-info">
+        <span>&#128197;</span>
+        <span><strong>Sabtu, 12 Juli 2026</strong></span>
+      </div>
+      <div class="tl-info">
+        <span>&#9200;</span>
+        <span>09:00 — 11:00 WIB</span>
+      </div>
+      <div class="tl-info">
+        <span>&#128205;</span>
+        <span><!-- 🖋 GANTI --><strong>[Nama Masjid / Gedung]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
+      </div>
+      <div class="tl-actions">
+        <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+        <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
       </div>
     </div>
 
     <!-- Resepsi -->
     <div class="tl-item reveal reveal-delay-2">
       <div class="tl-dot"></div>
-      <div class="tl-card">
-        <span class="tl-badge">Resepsi</span>
-        <h3 class="tl-name">Walimatul 'Ursy</h3>
-        <div class="tl-info">
-          <span>&#128197;</span>
-          <span><strong>Sabtu, 12 Juli 2026</strong></span>
-        </div>
-        <div class="tl-info">
-          <span>&#9200;</span>
-          <span>12:00 — 17:00 WIB</span>
-        </div>
-        <div class="tl-info">
-          <span>&#128205;</span>
-          <span><!-- 🖋 GANTI --><strong>[Nama Gedung / Hotel]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
-        </div>
-        <div class="tl-actions">
-          <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
-          <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
-        </div>
+      <div class="tl-badge">Resepsi</div>
+      <h3 class="tl-name">Walimatul 'Ursy</h3>
+      <div class="tl-info">
+        <span>&#128197;</span>
+        <span><strong>Sabtu, 12 Juli 2026</strong></span>
+      </div>
+      <div class="tl-info">
+        <span>&#9200;</span>
+        <span>12:00 — 17:00 WIB</span>
+      </div>
+      <div class="tl-info">
+        <span>&#128205;</span>
+        <span><!-- 🖋 GANTI --><strong>[Nama Gedung / Hotel]</strong><br>Jl. [Nama Jalan] No. 00, [Kota]</span>
+      </div>
+      <div class="tl-actions">
+        <a class="tl-btn" href="https://maps.google.com/?q=Jakarta" target="_blank">&#128205; Google Maps</a>
+        <a class="tl-btn" href="#" target="_blank">&#128197; Simpan</a>
       </div>
     </div>
   </div>
