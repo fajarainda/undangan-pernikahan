@@ -98,18 +98,7 @@ body::after{
 /* ============================================ */
 /* LOADER                                       */
 /* ============================================ */
-#loader{
-  position:fixed;inset:0;z-index:99999;
-  background:var(--brown);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  transition:opacity .6s ease,visibility .6s ease;
-  pointer-events:none
-}
-#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loader-ring{width:60px;height:60px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loader-text{margin-top:16px;font-family:var(--font-serif);color:var(--gold);font-size:.8rem;letter-spacing:4px;text-transform:uppercase;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
 
 /* ============================================ */
 /* COVER — GUNUNGAN                             */
@@ -159,7 +148,8 @@ body::after{
   color:var(--gold-l);font-family:var(--font-sans);
   font-size:.85rem;letter-spacing:2px;
   text-transform:uppercase;cursor:pointer;
-  transition:all .35s ease;border-radius:50px
+  transition:all .35s ease;border-radius:50px;
+  position:relative;z-index:10000
 }
 .cover-btn:hover{background:var(--gold);color:var(--brown)}
 .cover-btn .arrow{display:inline-block;transition:transform .3s}
@@ -644,12 +634,6 @@ section::after{
     </svg>
   </div>
 
-<!-- ===== LOADER ===== -->
-<div id="loader">
-  <div class="loader-ring"></div>
-  <div class="loader-text">Loading...</div>
-</div>
-
 <!-- ===== COVER ===== -->
 <div id="cover">
   <!-- Gunungan SVG -->
@@ -1016,11 +1000,7 @@ if(guest) document.getElementById('guestName').textContent=guest;
 /* ============================================ */
 /* LOADER                                       */
 /* ============================================ */
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('loader').classList.add('hidden'),400)
-});
-// fallback: paksa loader ilang stlh 4 detik biar gak stuck
-setTimeout(()=>document.getElementById('loader').classList.add('hidden'),4000)
+
 
 /* ============================================ */
 /* COUNTDOWN                                    */
